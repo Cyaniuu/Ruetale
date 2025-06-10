@@ -210,29 +210,11 @@ a{
             </div>
             <br>
             <script>
-//                 function isQQBrowser() {
-
-//     var userAgent = navigator.userAgent;
-
-
-//     return userAgent.includes('MQQBrowser') || userAgent.includes('QQ/');
-
-
-// }
-
-
-// if (isQQBrowser()) {
-
-
-//     console.log('当前浏览器是QQ内置浏览器');
-//     document.querySelector(".h2").innerHTML = "请复制链接到浏览器打开"
-
-
-// }
+                
 var ua = navigator.userAgent.toLowerCase();
 if (ua.match(/QQ/i) == "qq") {
     if (ua.indexOf('qqtheme') > -1) {
-        document.querySelector(".h2").innerHTML = "请复制链接到浏览器打开"
+        document.querySelector("body").innerHTML = "请复制链接到浏览器打开"
     } else {
         
     }
