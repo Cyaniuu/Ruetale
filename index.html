@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ruetale·流年服务器</title>
+</head>
+<style>
+html{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    background-color: #DEF6D3;
+}
+body{
+    margin: 0;
+    margin-top: 50px;
+    margin-bottom: 0;
+    min-width: 320px;
+    background-color: #FBFDF3;
+    border-radius: 35px;
+}
+a{
+    text-decoration-line: none;
+}
+.tittle{
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    line-height: 60px;
+    margin-left: 40px;
+}
+    .copy-btn{
+        border: 0;
+        color: #3F6836;
+        height: 25px;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: #ffffff00;
+    }
+    .btnactive{
+        background-color: #DEF6D3;
+    }
+    .oneclick{
+        background-color: #3F6836;
+        border-radius: 25px;
+        cursor: pointer;
+        color: #FFFFFF;
+        padding: 3px 12px;
+        font-size: 12;
+    }
+    .download{
+    margin-left: auto;
+    display: flex;
+    margin: auto 10px auto auto;
+    background-color: #e0f8f07c;
+    flex-direction: column;
+    text-align: center;
+    padding: 8px;
+    border-radius: 16px;
+}
+.download a{
+    background-color: rgb(228, 240, 236);
+    color: rgb(109, 138, 128);
+    margin: 2px auto;
+    height: 26px;
+    width: 125px;
+    line-height: 26px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.downloadmain{
+    height: 28px;
+    width: 100px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: rgb(156,39,176);
+    margin: auto 15px;
+    color: white;
+}
+    .bedownload{
+        background-color: #DEF6D3;
+        margin: 0;
+        padding: 6px;
+        padding-left: 35px;
+        border-radius: 0 30px 30px 0;
+        width: 250px;
+    }
+    .bedownload a{
+        color: #3f6836ea;
+    }
+    
+    .advice{
+        padding: 6px;
+        padding-left: 35px;
+        a{
+            color: #3f6836ea;
+            margin-right: 3px;
+        }
+    }
+    .line{
+        width: auto;
+        height: 12px;
+        background-color: #3f683693;
+        margin: 0;
+        padding: 0;
+        width: 48px;
+        margin-top: -27px;
+    }
+    .about{
+    background-color: #EFF2E8;
+    height: auto;
+    margin: 0px 10px 0px 10%;
+    border-radius: 35px 35px 35px 35px;
+    padding: 40px;
+    }
+    .about p{
+    margin: auto;
+    }
+    .state{
+        padding: 0;
+    }
+    
+.input{
+        position: absolute;
+        top: -100%;
+        left: 0;
+        opacity: 0;
+        z-index: -10;
+    }
+</style>
+<body>
+    <input readonly value="内容" class="input">
+    <div style="width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;"><h2 class="h2" style="margin-top: -30px;font-size: 38px;color: #3F6836;">Ruetale·流年</h2></div>
+    <div class="bedownload">
+        基岩版下载:<br />
+        <a href="https://mcapks.net/info/MS4yMS42MC4xMA%3D%3D/d6e2606b50d81934ad8606932b63fcc5.html">
+            安卓版
+        </a>
+        <a href="https://cloud.nyan.run/s/DB9Cp" class="ios">
+            iOS版
+        </a>
+        <a href="https://dl.mcappx.com/be-1-21-6010-x64-cn" class="windows">
+            Windows版
+        </a>
+        
+        
+        
+        <a href="https://bbk.endyun.ltd/download" class="all">
+            全部
+        </a>
+    </div>
+
+
+
+    <div class="tittle" >
+        <span>
+            加入：
+            <p class="line"></p>
+        </span>
+    </div>
+    <div class="about">
+        <p>
+            游戏版本: 基岩版1.21.5x ~ 1.21.8x<br>
+<br>
+        点下面的“<strong style="color: #3F6836;">一键添加</strong>”按钮即自动打开游戏并添加服务器<br>
+        <br>
+        主要线路<br>IP地址：
+        <span class="my-invitation-num-data"><span class="copycode1">z1.ruetalex.cc</span></span>
+        <button class="copy-btn" @click="handleCopy">复制</button><br> 端口： 30021 <a class="oneclick" href="minecraft://?addExternalServer=Ruetale·流年|z1.ruetalex.cc:30021">一键添加</a><br><br>
+        
+        备用线路<br>IP地址：
+        <span class="my-invitation-num-data"><span class="copycode2">z1.rainyland.cc</span></span>
+        <button class="copy-btn" @click="handleCopy">复制</button><br> 端口： 30021 <a class="oneclick" href="minecraft://?addExternalServer=Ruetale·流年备用线路|z1.rainyland.cc:30021">一键添加</a><br>
+        
+    </p>
+            </div>
+            <div class="tittle">
+                说明：
+                <p class="line"></p>
+            </div>
+        <div class="about">
+            <p>🎉 欢迎加入「Ruetale•流年」服务器！<br>
+⚠️ 游玩本服务必遵守服务器规则（群公告）<br>
+——<br>
+🥔 地址与端口<br>
+域名：z1.ruetalex.cc<br>
+端口：30021<br>
+支持版本：1.21.5x-1.21.8x<br>
+安卓共存版&电脑版安装包在群文件<br>
+——<br>
+📖 添加游戏账号 (用于查询统计和金币)<br>
+群聊发送：<br>
+绑定 你的游戏名字<br>
+例：绑定xiaobai233<br>
+⚠️ 游戏名注意大小写！<br>
+如需重新绑定, 发送"解绑"即可。</p>
+            
+        </div>
+        <br>
+            <div class="advice">
+                推荐:<br />
+                <a href="https://www.minebbs.com/resources/ui.11452/">菜单UI</a>
+                <a href="https://glyph-7zp.pages.dev/">特殊符号</a>
+            </div>
+            <br>
+            <script>
+                function isQQBrowser() {
+
+    var userAgent = navigator.userAgent;
+
+
+    return userAgent.includes('MQQBrowser') || userAgent.includes('QQ/');
+
+
+}
+
+
+if (isQQBrowser()) {
+
+
+    console.log('当前浏览器是QQ内置浏览器');
+    document.querySelector(".h2").innerHTML = "请使用浏览器打开"
+
+
+}
+
+
+
+
+
+const input = document.querySelector('.input')
+function handleCopy(a) {
+    num = a
+    copycode = document.querySelector(`.copycode${num}`);//内容=第几个内容
+	input.value = copycode.innerHTML//隐藏输入框内容=内容
+    input.select()//选择
+    document.execCommand('copy')//复制
+}
+
+const copyBtn = document.querySelectorAll('.copy-btn')
+for (let i = 0; i < copyBtn.length; i++) {
+    copyBtn[i].addEventListener('click', function () {
+    handleCopy(i + 1)
+    //for循环删除class并改回innerHTML
+    for (let j = 0; j < copyBtn.length; j++) {
+    copyBtn[j].classList.remove('btnactive')
+    copyBtn[j].innerHTML = '复制'
+    }
+    this.classList.add('btnactive')//添加class
+    this.innerHTML = '已复制'//修改innerHtml
+})
+}
+            </script>
+</body>
+</html>
