@@ -184,8 +184,10 @@ h2{
             plugins: false,
             delay: true
         },
+        
+        
         allowUserInput: false,
-        refreshInterval: 60000,
+        refreshInterval: 10000,
         smoothingSamples: 10,
         apiProviders: [
             {
@@ -231,7 +233,7 @@ h2{
             dangerButtonColor: '#F44336'
         }
     };
-
+console.log(defaultConfig.defaultServers[0].address);
     // 合并用户配置和默认配置
     const finalConfig = { ...defaultConfig, ...config };
     const {
@@ -735,12 +737,13 @@ h2{
             nameSpan.innerHTML = parseMinecraftColors(status.motd.raw);
         } else {
             // 服务器离线状态
-            initMinecraftServerChecker(
-                {containerId: 'minecraft-server-checker', // 容器ID
-            defaultServers: [
-                { address: "z1.rainyland.cc:30021" }
-            ]}
-            );
+            if (defaultConfig.defaultServers[0].address === "z1.ruetalex.cc:30021") {
+                defaultConfig.defaultServers[0].address = "z1.rainyland.cc:30021"
+            } else {
+                defaultConfig.defaultServers[0].address = "z1.ruetalex.cc:30021"
+            }
+            
+            refreshServers();
             const errorDiv = document.createElement('div');
             errorDiv.className = 'server-delay';
             errorDiv.innerHTML = `
@@ -1060,28 +1063,6 @@ if (ua.match(/QQ/i) == "qq") {
 
 
 
-const input = document.querySelector('.input')
-function handleCopy(a) {
-    num = a
-    copycode = document.querySelector(`.copycode${num}`);//内容=第几个内容
-	input.value = copycode.innerHTML//隐藏输入框内容=内容
-    input.select()//选择
-    document.execCommand('copy')//复制
-}
-
-const copyBtn = document.querySelectorAll('.copy-btn')
-for (let i = 0; i < copyBtn.length; i++) {
-    copyBtn[i].addEventListener('click', function () {
-    handleCopy(i + 1)
-    //for循环删除class并改回innerHTML
-    for (let j = 0; j < copyBtn.length; j++) {
-    copyBtn[j].classList.remove('btnactive')
-    copyBtn[j].innerHTML = '复制'
-    }
-    this.classList.add('btnactive')//添加class
-    this.innerHTML = '已复制'//修改innerHtml
-})
-}
             </script>
 </body>
 </html>
