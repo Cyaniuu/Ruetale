@@ -179,7 +179,7 @@ h2{
             version: true,
             players: true,
             gamemode: false,
-            edition: true,
+            edition: false,
             software: false,
             plugins: false,
             delay: true
@@ -630,10 +630,15 @@ h2{
             if (displaySettings.version && status.version) {
                 const versionItem = document.createElement('div');
                 versionItem.className = 'info-item';
-                versionItem.innerHTML = `
+                if (status.edition === "MCPE") {
+                    versionItem.innerHTML = `
                     <div class="info-label">版本</div>
-                    <div class="info-value blue">${status.version.name}</div>
+                    <div class="info-value blue">基岩版${status.version.name}</div>
                 `;
+                } else {versionItem.innerHTML = `
+                    <div class="info-label">版本</div>
+                    <div class="info-value blue">JAVA版${status.version.name}</div>
+                `;}
                 infoDiv.appendChild(versionItem);
             }
 
@@ -698,6 +703,17 @@ h2{
                 `;
                 infoDiv.appendChild(pluginsItem);
             }
+            //qq群
+            const qqGroup = document.createElement('div');
+                qqGroup.className = 'info-item';
+                qqGroup.innerHTML = `
+                    <div class="info-label">群聊</div>
+                    <a href = "https://qm.qq.com/q/rTuZaEF2s" class="info-value green">706118248</a>
+                `;
+                infoDiv.appendChild(qqGroup);
+
+            
+            //一键添加
             const addServer = document.createElement('div');
                 addServer.className = 'info-item';
                 addServer.innerHTML = `
