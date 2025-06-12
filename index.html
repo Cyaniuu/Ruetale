@@ -166,31 +166,40 @@ h2{
         apiProviders: [
             {
                 name: 'MCSrvStat',
-                url: (host, port) => `https://api.mcsrvstat.us/2/${host}:${port}`,
+                url: (host, port) => `https://api.mcsrvstat.us/bedrock/3/${host}:${port}`,
                 parser: (data) => ({
                     latency: data.debug?.ping,
                     online: data.online,
                     players: data.players?.online
                 })
             },
-            {
-                name: 'MCAPI',
-                url: (host, port) => `https://mcapi.xdefcon.com/server/${host}/status`,
-                parser: (data) => ({
-                    latency: data.ping,
-                    online: data.serverStatus === 'online',
-                    players: data.players
-                })
-            },
-            {
-                name: 'MCStatus',
-                url: (host, port) => `https://api.mcstatus.io/v2/status/bedrock/${host}:${port}`,
-                parser: (data) => ({
-                    latency: data.roundTripLatency,
-                    online: data.online,
-                    players: data.players.online
-                })
-            }
+            // {
+            //     name: 'MCSrvStat',
+            //     url: (host, port) => `https://api.mcsrvstat.us/2/${host}:${port}`,
+            //     parser: (data) => ({
+            //         latency: data.debug?.ping,
+            //         online: data.online,
+            //         players: data.players?.online
+            //     })
+            // },
+            // {
+            //     name: 'MCAPI',
+            //     url: (host, port) => `https://mcapi.xdefcon.com/server/${host}/status`,
+            //     parser: (data) => ({
+            //         latency: data.ping,
+            //         online: data.serverStatus === 'online',
+            //         players: data.players
+            //     })
+            // },
+            // {
+            //     name: 'MCStatus',
+            //     url: (host, port) => `https://api.mcstatus.io/v2/status/bedrock/${host}:${port}`,
+            //     parser: (data) => ({
+            //         latency: data.roundTripLatency,
+            //         online: data.online,
+            //         players: data.players.online
+            //     })
+            // }
         ],
         theme: {
             cardBackgroundColor: '#2D2D2D',
@@ -207,7 +216,6 @@ h2{
             dangerButtonColor: '#F44336'
         }
     };
-console.log(defaultConfig.defaultServers[0].address);
     // 合并用户配置和默认配置
     const finalConfig = { ...defaultConfig, ...config };
     const {
@@ -559,30 +567,28 @@ console.log(defaultConfig.defaultServers[0].address);
 
         // 如果服务器在线，显示详细信息
         if (status.online) {
-            // 如果有公告，显示公告
-            if (displaySettings.motd && status.motd && status.motd.raw) {
-                const motdDiv = document.createElement('div');
-                motdDiv.className = 'server-delay';
-                motdDiv.innerHTML = `
+            //IP地址
+                const IPAddressDiv = document.createElement('div');
+                IPAddressDiv.className = 'server-delay';
+                IPAddressDiv.innerHTML = `
                 <div class="info-label">IP地址</div>
                 <div class="info-value">
                     ${server.address.split(':')[0]}
                 </div>
             `;
-                card.appendChild(motdDiv);
-            }
-
-            if (displaySettings.motd && status.motd && status.motd.raw) {
-                const motdDiv = document.createElement('div');
-                motdDiv.className = 'server-delay';
-                motdDiv.innerHTML = `
+                card.appendChild(IPAddressDiv);
+            
+            //端口
+                const portDiv = document.createElement('div');
+                portDiv.className = 'server-delay';
+                portDiv.innerHTML = `
                 <div class="info-label">端口</div>
                 <div class="info-value">
                     ${server.address.split(':')[1]}
                 </div>
             `;
-                card.appendChild(motdDiv);
-            }
+                card.appendChild(portDiv);
+            
 
             // API延迟信息
             const apiDelayDiv = document.createElement('div');
@@ -629,6 +635,8 @@ console.log(defaultConfig.defaultServers[0].address);
                 `;
                 infoDiv.appendChild(playersItem);
             }
+            console.log(status);
+            
 
             // 游戏模式
             if (displaySettings.gamemode && status.gamemode) {
@@ -716,7 +724,7 @@ console.log(defaultConfig.defaultServers[0].address);
             } else {
                 defaultConfig.defaultServers[0].address = "z1.ruetalex.cc:30021"
             }
-            
+            nameSpan.innerHTML = parseMinecraftColors("§c失败");
             refreshServers();
             const errorDiv = document.createElement('div');
             errorDiv.className = 'server-delay';
