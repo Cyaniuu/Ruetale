@@ -548,6 +548,8 @@ h2{
         // 获取当前时间
         const now = new Date();
         const formattedTime = now.toLocaleString();
+        
+        
 
         // 创建服务器头部
         const header = document.createElement('div');
@@ -717,6 +719,12 @@ h2{
             updatedDiv.textContent = `状态: ${formattedTime}`;
             card.appendChild(updatedDiv);
             nameSpan.innerHTML = parseMinecraftColors(status.motd.raw);
+
+            const numIPAddress = document.createElement('div');
+            numIPAddress.className = 'last-updated';
+            numIPAddress.innerHTML = `<a href = "minecraft://?addExternalServer=流年(临时IP/${now.getMonth() + 1}月${now.getDate()}日)|${status.ip_address}:${status.port}" class="last-updated">临时IP(域名不可进入时尝试)</a>`;//一键添加临时IP
+            card.appendChild(numIPAddress);
+            console.log(now.getMonth() + 1);
         } else {
             // 服务器离线状态
             if (defaultConfig.defaultServers[0].address === "z1.ruetalex.cc:30021") {
@@ -730,7 +738,7 @@ h2{
             errorDiv.className = 'server-delay';
             errorDiv.innerHTML = `
                 <div class="info-label">错误</div>
-                <div class="info-value red">${status.error || '无法连接到服务器，请稍后刷新'}</div>
+                <div class="info-value red">${status.error || '无法连接到服务器'}</div>
             `;
             card.appendChild(errorDiv);
 
